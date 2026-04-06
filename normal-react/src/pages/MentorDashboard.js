@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Calendar, User, FileText, Star, Clock, AlertCircle, CheckCircle, ArrowRight } from 'lucide-react';
+import { Calendar, User, FileText, Star, Clock, CheckCircle} from 'lucide-react';
 
 function MentorDashboard() {
   const [mentorId] = useState(1); // In a real app, this would come from auth context
