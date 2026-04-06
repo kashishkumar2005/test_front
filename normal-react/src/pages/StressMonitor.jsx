@@ -21,7 +21,7 @@ const StressMonitor = () => {
   const previousFrameRef = useRef(null);
   const [stressHistory, setStressHistory] = useState([]);
   const [showSummary, setShowSummary] = useState(false);
-  const [sessionSummary, setSessionSummary] = useState({ avg: 0, max: 0, min: 0, duration: 0, tip: '' });
+  const [sessionSummary] = useState({ avg: 0, max: 0, min: 0, duration: 0, tip: '' });
 
   // Initialize webcam
   const initializeWebcam = async () => {
@@ -128,7 +128,7 @@ const StressMonitor = () => {
         { time: new Date().toLocaleTimeString().split(' ')[0], value: Math.round(stressBased ?? stressLevel) }
       ]);
     }
-  }, [hasCameraAccess]);
+  }, [hasCameraAccess, stressLevel]);
 
   // Simulate stress detection (when camera not available)
   const simulateStress = useCallback(() => {
