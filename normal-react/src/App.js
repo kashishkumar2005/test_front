@@ -5,8 +5,6 @@ import React, { useState, useEffect } from 'react';
 import { signup, login } from './api/auth';
 import { createCheckin, getCheckins } from './api/checkins';
 import { createBooking, getBookings } from './api/bookings';
-import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer, Area, AreaChart } from 'recharts';
-import { Brain, TrendingUp, AlertCircle, CheckCircle, Calendar, Sparkles, ArrowRight, BarChart3, Heart, Coffee, Moon, Target, Zap, Clock, Download, Share2, Sun, Volume2, VolumeX, BarChart2, Eye } from 'lucide-react';
 import MentorDashboard from './pages/MentorDashboard';
 import StudentReport from './pages/StudentReport';
 import StressMonitor from './pages/StressMonitor';
@@ -38,7 +36,6 @@ export default function App() {
   // Admin view state (hardcoded credentials)
   const [isAdminAuthenticated, setIsAdminAuthenticated] = useState(false);
   const [adminError, setAdminError] = useState('');
-  const [adminRecords, setAdminRecords] = useState([]);
   const [adminStats, setAdminStats] = useState(null);
   const [adminLoading, setAdminLoading] = useState(false);
 
@@ -490,17 +487,6 @@ const selectMentor = (mentor) => {
   setSelectedMentor(mentor);
   playSound('click');
   vibrate(50);
-};
-
-const bookMentor = (mentor) => {
-  // quick local fallback; prefer API booking via confirmBooking/modal flow
-  const booking = { id: Date.now(), mentorId: mentor.id, mentorName: mentor.name, date: new Date().toLocaleString(), notes: '' };
-  const newBookings = [...bookings, booking];
-  setBookings(newBookings);
-  localStorage.setItem('skillpulse-bookings', JSON.stringify(newBookings));
-  playSound('success');
-  vibrate([100,50,100]);
-  alert(`Booked a mentoring session with ${mentor.name}`);
 };
 
 const openBookingModal = (mentor) => {
