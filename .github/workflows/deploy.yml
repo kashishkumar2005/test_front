@@ -1,6 +1,4 @@
-# This file is used to deploy the application
-
-name: Deploy
+name: Deploy normal-react to GitHub Pages
 
 on:
   push:
@@ -8,21 +6,26 @@ on:
       - main
 
 jobs:
-  build:
+  deploy:
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout code
-        uses: actions/checkout@v2
-
+      - uses: actions/checkout@v3
+      
+      - name: Setup Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: '18'
+      
       - name: Install dependencies
-        run: |
-          cd normal-react
-          npm install --legacy-peer-deps
-
+        working-directory: ./normal-react
+        run: npm install --legacy-peer-deps
+      
       - name: Build
-        run: |
-          cd normal-react
-          npm run build
-
-      - name: Deploy
-        run: echo 'Deploying...'
+        working-directory: ./normal-react
+        run: npm run build
+      
+      - name: Deploy to GitHub Pages
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./normal-react/build
