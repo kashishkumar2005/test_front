@@ -23,10 +23,9 @@ jobs:
         run: |
           cd normal-react
           npm run build
-      - name: Deploy to GitHub Pages
-        uses: peaceiris/actions-gh-pages@v3
-        with:
+          - name: Deploy to GitHub Pages
+          uses: peaceiris/actions-gh-pages@v3
+          with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
-          personal_token: ${{ secrets.GH_PAGES_TOKEN }}
           publish_dir: ./normal-react/build
           publish_branch: gh-pages
