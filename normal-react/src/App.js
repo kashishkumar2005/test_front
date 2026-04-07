@@ -43,8 +43,7 @@ export default function App() {
   const [animateScore, setAnimateScore] = useState(false);
 
   // Admin view state (hardcoded credentials)
-  const [isAdminAuthenticated, setIsAdminAuthenticated] = useState(false);
-  const [adminError, setAdminError] = useState('');
+  const [adminLoading, setAdminLoading] = useState(false);  const [adminError, setAdminError] = useState('');
   const [adminStats, setAdminStats] = useState(null);
   const [adminLoading, setAdminLoading] = useState(false);
 
@@ -277,13 +276,11 @@ const adminLogin = async (username, password) => {
 
   setAdminRecords(data.records || []);
   setAdminStats(data.stats || null);
-  setIsAdminAuthenticated(true);
   setView('admin');
   setAdminLoading(false);
 };
 
 const adminLogout = () => {
-  setIsAdminAuthenticated(false);
   setAdminRecords([]);
   setAdminStats(null);
   setAdminError('');
