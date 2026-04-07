@@ -43,9 +43,9 @@ export default function App() {
   const [animateScore, setAnimateScore] = useState(false);
 
   // Admin view state (hardcoded credentials)
-  const [adminLoading, setAdminLoading] = useState(false);  const [adminError, setAdminError] = useState('');
-  const [adminStats, setAdminStats] = useState(null);
   const [adminLoading, setAdminLoading] = useState(false);
+  const [adminError, setAdminError] = useState('');
+  const [adminStats, setAdminStats] = useState(null);
 
   // Mentoring states
   const [mentors] = useState([
