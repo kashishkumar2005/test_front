@@ -9,10 +9,15 @@ import MentorDashboard from './pages/MentorDashboard';
 import StudentReport from './pages/StudentReport';
 import StressMonitor from './pages/StressMonitor';
 import StressAnalytics from './pages/StressAnalytics';
-// Add these imports to your file (adjust the library names as needed)
-import { Area } from 'recharts';  // or your charting library
-import { Calendar } from 'lucide-react';  // or your icon library
-import { ArrowRight } from 'lucide-react';  // or your icon library
+import { 
+  Brain, Sparkles, ArrowRight, Volume2, VolumeX, Sun, Moon, Heart, 
+  BarChart3, Eye, Coffee, BarChart2, Target, Zap, AlertCircle, Clock, 
+  Share2, TrendingUp, Download, Calendar
+} from 'lucide-react';
+import { 
+  ResponsiveContainer, AreaChart, CartesianGrid, XAxis, YAxis, 
+  Tooltip, Area 
+} from 'recharts';
 
 export default function App() {
   const [view, setView] = useState('login');
@@ -33,6 +38,7 @@ export default function App() {
   const [currentScore, setCurrentScore] = useState(null);
   const [suggestions, setSuggestions] = useState([]);
   const [showConfetti, setShowConfetti] = useState(false);
+  const [adminRecords, setAdminRecords] = useState([]);
   const [showShareModal, setShowShareModal] = useState(false);
   const [animateScore, setAnimateScore] = useState(false);
 
