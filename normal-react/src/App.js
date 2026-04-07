@@ -9,7 +9,10 @@ import MentorDashboard from './pages/MentorDashboard';
 import StudentReport from './pages/StudentReport';
 import StressMonitor from './pages/StressMonitor';
 import StressAnalytics from './pages/StressAnalytics';
-
+// Add these imports to your file (adjust the library names as needed)
+import { Area } from 'recharts';  // or your charting library
+import { Calendar } from 'lucide-react';  // or your icon library
+import { ArrowRight } from 'lucide-react';  // or your icon library
 
 export default function App() {
   const [view, setView] = useState('login');
